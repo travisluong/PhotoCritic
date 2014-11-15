@@ -1,0 +1,12 @@
+<h1>Photos App</h1>
+
+<div id="photos"></div>
+
+<script type="text/javascript">
+  $(function() {
+    // Blog is the app name
+    window.router = new PhotoCritic.Routers.PhotosRouter({photos: <%= @photos.to_json.html_safe -%>});
+    Backbone.history.start();
+  });
+</script>
+
