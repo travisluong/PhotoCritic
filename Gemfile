@@ -32,6 +32,8 @@ gem 'bootstrap-sass'
 
 gem 'puma'
 
+gem 'rails-backbone'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
