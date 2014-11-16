@@ -13,7 +13,7 @@ class PhotoCritic.Views.Photos.EditView extends Backbone.View
     @model.save(null,
       success: (photo) =>
         @model = photo
-        window.location.hash = "/#{@model.id}"
+        window.location.hash = "/photos/#{@model.id}"
     )
 
   render: ->

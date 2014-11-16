@@ -23,7 +23,7 @@ class PhotoCritic.Views.Photos.NewView extends Backbone.View
     @collection.create(@model.toJSON(),
       success: (photo) =>
         @model = photo
-        window.location.hash = "/#{@model.id}"
+        window.location.hash = "/photos/#{@model.id}"
 
       error: (photo, jqXHR) =>
         @model.set({errors: $.parseJSON(jqXHR.responseText)})
