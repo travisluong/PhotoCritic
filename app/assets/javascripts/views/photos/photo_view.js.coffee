@@ -1,7 +1,7 @@
 PhotoCritic.Views.Photos ||= {}
 
 class PhotoCritic.Views.Photos.PhotoView extends Backbone.View
-  template: JST["backbone/templates/photos/photo"]
+  template: HandlebarsTemplates["templates/photos/photo"]
 
   events:
     "click .destroy" : "destroy"

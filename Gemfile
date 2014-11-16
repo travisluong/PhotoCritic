@@ -34,6 +34,8 @@ gem 'puma'
 
 gem 'rails-backbone'
 
+gem 'handlebars_assets'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

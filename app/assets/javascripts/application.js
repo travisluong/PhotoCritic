@@ -12,10 +12,15 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require handlebars.runtime.js
 //= require bootstrap-sprockets
 //= require underscore
 //= require backbone
 //= require backbone_rails_sync
 //= require backbone_datalink
-//= require backbone/photo_critic
+//= require photo_critic
+//= require_tree ./templates
+//= require_tree ./models
+//= require_tree ./views
+//= require_tree ./routers
 //= require_tree .
