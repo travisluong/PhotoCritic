@@ -8,17 +8,25 @@
 </head>
 <body>
 
-<% if user_signed_in? %>
 
-  <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
 
-<% else %>
+<div class="container">
 
-  <%= link_to "Login", new_user_session_path %>
+  <% if user_signed_in? %>
 
-<% end %>
+    <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
 
-<%= yield %>
+  <% else %>
+
+    <%= link_to "Login", new_user_session_path %>
+
+    <%= link_to "Sign Up", new_registration_path(:user) %>
+
+  <% end %>
+
+  <%= yield %>
+
+</div>
 
 </body>
 </html>
