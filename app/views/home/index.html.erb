@@ -1,5 +1,9 @@
 <h1>PhotoCritic</h1>
 
+<% if user_signed_in? %>
+
+<div id="photo-critic-app"></div>
+
 <script type="text/javascript">
   $(function() {
     // Blog is the app name
@@ -7,3 +11,5 @@
     Backbone.history.start();
   });
 </script>
+
+<% end %>
