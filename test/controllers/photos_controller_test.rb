@@ -2,6 +2,8 @@ require 'test_helper'
 
 class PhotosControllerTest < ActionController::TestCase
   setup do
+    @user = users(:one)
+    sign_in @user
     @photo = photos(:one)
   end
 
