@@ -1,15 +1,19 @@
-<h1>PhotoCritic</h1>
-
 <% if user_signed_in? %>
 
-<div id="photo-critic-app"></div>
+  <div id="photo-critic-app"></div>
 
-<script type="text/javascript">
-  $(function() {
-    // Blog is the app name
-    window.router = new PhotoCritic.Routers.PhotosRouter();
-    Backbone.history.start();
-  });
-</script>
+  <script type="text/javascript">
+    $(function() {
+      // Blog is the app name
+      window.router = new PhotoCritic.Routers.PhotosRouter();
+      Backbone.history.start();
+    });
+  </script>
+
+<% else %>
+
+  <%= link_to "Login", new_user_session_path, class: "btn btn-primary btn-block" %>
+
+  <%= link_to "Sign Up", new_registration_path(:user), class: "btn btn-primary btn-block" %>
 
 <% end %>
