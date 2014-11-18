@@ -28,7 +28,7 @@ class PhotoCritic.Routers.PhotosRouter extends Backbone.Router
 
   showPhoto: (id) ->
     photo = @photos.get(id)
-
+    debugger
     @view = new PhotoCritic.Views.Photos.ShowView(model: photo)
     $("#photo-critic-app").html(@view.render().el)
 

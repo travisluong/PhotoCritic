@@ -4,8 +4,10 @@ class PhotosController < ApplicationController
   respond_to :html, :json
 
   def index
-    @photos = Photo.all
-    respond_with(@photos)
+    @photos = Photo.all.reverse_order
+    respond_to do |format|
+      format.json { render json: @photos, each_serializer: PhotoSerializer }
+    end
   end
 
   def show
@@ -23,7 +25,10 @@ class PhotosController < ApplicationController
   def create
     @photo = Photo.new(photo_params)
     @photo.save
-    respond_with(@photo)
+    # respond_with(@photo)
+    respond_to do |format|
+      format.html { render json: @photo }
+    end
   end
 
   def update
