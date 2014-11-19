@@ -19,7 +19,6 @@ class PhotoCritic.Views.Photos.NewView extends Backbone.View
     e.stopPropagation()
     input = $('form input[type=file]')
     title = $('form #title').val()
-    debugger
     formData = new FormData()
     formData.append('photo[image]', input[0].files[0])
     formData.append('photo[title]', title)

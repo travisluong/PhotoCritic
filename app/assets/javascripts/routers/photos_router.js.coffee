@@ -1,6 +1,8 @@
 class PhotoCritic.Routers.PhotosRouter extends Backbone.Router
   initialize: (options) ->
     @photos = new PhotoCritic.Collections.PhotosCollection()
+    @navView = new PhotoCritic.Views.Home.NavView()
+    $("#photo-critic-nav").html(@navView.render().el)
     # @photos.reset options.photos
 
   routes:
@@ -28,12 +30,10 @@ class PhotoCritic.Routers.PhotosRouter extends Backbone.Router
 
   showPhoto: (id) ->
     photo = @photos.get(id)
-    debugger
     @view = new PhotoCritic.Views.Photos.ShowView(model: photo)
     $("#photo-critic-app").html(@view.render().el)
 
   editPhoto: (id) ->
     photo = @photos.get(id)
-
     @view = new PhotoCritic.Views.Photos.EditView(model: photo)
     $("#photo-critic-app").html(@view.render().el)

@@ -1,6 +1,11 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#photo-critic-nav a {
+  outline: none;
+}
+
 @media (min-width: 768px) {
   .container {
     max-width: 730px;
