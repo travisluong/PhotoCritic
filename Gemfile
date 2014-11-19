@@ -13,11 +13,14 @@ gem 'puma'
 gem 'rails-backbone'
 gem 'handlebars_assets'
 gem 'paperclip'
-gem 'rails_12factor'
-gem 'pry'
 gem 'active_model_serializers'
 
+group :production do
+  gem 'rails_12factor'
+end
+
 group :development do
+  gem 'pry'
   gem 'spring'
   gem 'guard-livereload', require: false
 end
