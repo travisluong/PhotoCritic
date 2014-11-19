@@ -29,9 +29,15 @@ class PhotoCritic.Routers.PhotosRouter extends Backbone.Router
     $("#photo-critic-app").html(@view.render().el)
 
   showPhoto: (id) ->
-    photo = @photos.get(id)
-    @view = new PhotoCritic.Views.Photos.ShowView(model: photo)
-    $("#photo-critic-app").html(@view.render().el)
+    photo = new PhotoCritic.Models.Photo()
+    photo.id = id
+    photo.url = ->
+      '/photos/' + id
+    photo.fetch({success: (model, response, options) ->
+      # photo = @photos.get(id)
+      @view = new PhotoCritic.Views.Photos.ShowView(model: photo)
+      $("#photo-critic-app").html(@view.render().el)
+    })
 
   editPhoto: (id) ->
     photo = @photos.get(id)

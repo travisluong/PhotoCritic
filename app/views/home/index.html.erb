@@ -8,7 +8,21 @@
     $(function() {
       // Blog is the app name
       window.router = new PhotoCritic.Routers.PhotosRouter();
-      Backbone.history.start();
+      Backbone.history.start({pushState: true});
+
+
+        $(document).on('click', 'a:not([data-bypass])', function (evt) {
+
+            var href = $(this).attr('href');
+            var protocol = this.protocol + '//';
+
+            if (href.slice(protocol.length) !== protocol) {
+              evt.preventDefault();
+              window.router.navigate(href, true);
+            }
+          });
+
+
     });
   </script>
 

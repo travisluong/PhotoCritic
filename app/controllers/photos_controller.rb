@@ -1,25 +1,35 @@
 class PhotosController < ApplicationController
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
 
-  respond_to :html, :json
+  respond_to :json
 
   def index
     @photos = Photo.all.reverse_order
     respond_to do |format|
       format.json { render json: @photos, each_serializer: PhotoSerializer }
+      format.html { render :template => 'home/index'}
     end
   end
 
   def show
-    respond_with(@photo)
+    respond_to do |format|
+      format.json { render json: @photo }
+      format.html { render :template => 'home/index'}
+    end
   end
 
   def new
     @photo = Photo.new
-    respond_with(@photo)
+    respond_to do |format|
+      format.json { render json: @photo }
+      format.html { render :template => 'home/index'}
+    end
   end
 
   def edit
+    respond_to do |format|
+      format.html { render :template => 'home/index'}
+    end
   end
 
   def create
@@ -27,18 +37,25 @@ class PhotosController < ApplicationController
     @photo.save
     # respond_with(@photo)
     respond_to do |format|
-      format.html { render json: @photo }
+      format.json { render json: @photo }
+      format.html { render :template => 'home/index'}
     end
   end
 
   def update
     @photo.update(photo_params)
-    respond_with(@photo)
+    respond_to do |format|
+      format.json { render json: @photo }
+      format.html { render :template => 'home/index'}
+    end
   end
 
   def destroy
     @photo.destroy
-    respond_with(@photo)
+    respond_to do |format|
+      format.json { render json: @photo }
+      format.html { render :template => 'home/index'}
+    end
   end
 
   private
