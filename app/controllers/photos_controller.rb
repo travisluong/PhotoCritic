@@ -4,7 +4,7 @@ class PhotosController < ApplicationController
   respond_to :json
 
   def index
-    @photos = Photo.all.reverse_order
+    @photos = current_user.photos.all.reverse_order
     respond_to do |format|
       format.json { render json: @photos, each_serializer: PhotoSerializer }
       format.html { render :template => 'home/index'}
@@ -33,7 +33,7 @@ class PhotosController < ApplicationController
   end
 
   def create
-    @photo = Photo.new(photo_params)
+    @photo = current_user.photos.new(photo_params)
     @photo.save
     # respond_with(@photo)
     respond_to do |format|
