@@ -21,6 +21,8 @@ class PhotoCritic.Views.Photos.NewView extends Backbone.View
     titleElem = $('form #title')
     title = titleElem.val()
     isValid = true
+    $('.text-danger').remove()
+    $('.form-group').removeClass('has-error')
     if _.isEmpty(title)
       isValid = false
       titleElem.closest('.form-group').addClass('has-error')
@@ -49,12 +51,7 @@ class PhotoCritic.Views.Photos.NewView extends Backbone.View
       processData: false,
       type: 'POST',
       success: (data) =>
-        photo = JSON.parse(data)
-        model = new @collection.model()
-        model.set(photo)
-        # must add photo to collection so we can "get" the photo in the router
-        @collection.add(model)
-        window.location.hash = "/photos/#{photo.id}"
+        Backbone.history.navigate("/photos/#{data.id}", {trigger: true})
     })    
 
     # @collection.create(@model.toJSON(),
