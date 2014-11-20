@@ -18,12 +18,28 @@ class PhotoCritic.Views.Photos.NewView extends Backbone.View
     e.preventDefault()
     e.stopPropagation()
     input = $('form input[type=file]')
-    title = $('form #title').val()
+    titleElem = $('form #title')
+    title = titleElem.val()
+    isValid = true
+    if _.isEmpty(title)
+      isValid = false
+      titleElem.closest('.form-group').addClass('has-error')
+      titleElem.after("<p class='text-danger'>Missing Title</p>")
+    if input[0].files[0] == undefined
+
+      input.closest('.form-group').addClass('has-error')
+      input.after("<p class='text-danger'>Missing Image</p>")
+      isValid = false
+    if !isValid
+      return
+
     formData = new FormData()
     formData.append('photo[image]', input[0].files[0])
     formData.append('photo[title]', title)
     @model.data = formData
     @model.unset("errors")
+
+    @model.validate()
 
     $.ajax({
       url: '/photos',
