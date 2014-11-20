@@ -1,15 +1,15 @@
 <h1>New photo</h1>
 
 <form id="new-photo" name="photo" enctype="multipart/form-data">
-  <div class="field">
-    <label for="title"> title:</label>
-    <input type="text" name="title" id="title" value="{{ title }}" >
-    <label for="image"> image:</label>
+  <div class="form-group">
+    <label for="title"> Title:</label>
+    <input class="form-control" type="text" name="title" id="title" value="{{ title }}" placeholder="Title">
+    <label for="image"> Image:</label>
     <input type="file" name="image" id="image">
   </div>
 
   <div class="actions">
-    <input type="submit" value="Create Photo" />
+    <input type="submit" value="Create Photo" class="btn btn-primary" />
   </div>
 
 </form>
