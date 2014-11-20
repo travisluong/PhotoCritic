@@ -3,13 +3,13 @@ PhotoCritic.Views.Home ||= {}
 class PhotoCritic.Views.Home.NavView extends Backbone.View
   template: HandlebarsTemplates["templates/home/nav"]
 
+  lastIndexLinks:
+    '/': '#home-link'
+    '/photos': '#photos-link'
+    '/new': '#new-link'
+
   events: ->
     "click a": "navClicked"
-    "click #my-photos-link": "myPhotosLink"
-
-  myPhotosLink: ->
-    alert('test')
-    PhotoCritic.Routers.PhotoRouter.navigate('photos', {trigger: true})
 
   navClicked: (e) ->
     $('#photo-critic-nav').find('li').removeClass('active')
@@ -18,4 +18,14 @@ class PhotoCritic.Views.Home.NavView extends Backbone.View
 
   render: ->
     @$el.html(@template())
+
+    # after the template has been rendered and attached to element:
+    # get the url last index string and find the associated nav id
+    # set the li to active
+    href = window.location.toString()
+    lastIndex = href.substr(href.lastIndexOf('/'))
+    id = @lastIndexLinks[lastIndex]
+    selector = "#photo-critic-nav #{id}"
+    @$el.find(selector).parent().addClass('active') 
+
     return this

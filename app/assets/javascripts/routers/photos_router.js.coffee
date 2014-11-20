@@ -3,7 +3,6 @@ class PhotoCritic.Routers.PhotosRouter extends Backbone.Router
     @photos = new PhotoCritic.Collections.PhotosCollection()
     @navView = new PhotoCritic.Views.Home.NavView()
     $("#photo-critic-nav").html(@navView.render().el)
-    # @photos.reset options.photos
 
   routes:
     "home"     : "home"
@@ -49,3 +48,9 @@ class PhotoCritic.Routers.PhotosRouter extends Backbone.Router
       @view = new PhotoCritic.Views.Photos.EditView(model: photo)
       $("#photo-critic-app").html(@view.render().el)
     })
+
+  # setActiveOnNav: =>
+  #   href = window.location.toString()
+  #   id = href.substr(href.lastIndexOf('/'))
+  #   selector = "#photo-critic-nav a[href='#{id}'']"
+  #   @navView.$el.find(selector).parent().addClass('active')
