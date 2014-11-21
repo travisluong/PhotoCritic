@@ -4,7 +4,12 @@ class PhotosController < ApplicationController
   respond_to :json
 
   def index
-    @photos = current_user.photos.all.reverse_order
+    offset = 1
+    if params[:page]
+      page = params[:page].to_i
+      offset = 5 * (page - 1)
+    end
+    @photos = current_user.photos.limit(5).offset(offset).reverse_order
     respond_to do |format|
       format.json { render json: @photos, each_serializer: PhotoSerializer }
       format.html { render :template => 'home/index'}

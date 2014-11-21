@@ -21,6 +21,7 @@ end
 
 group :development do
   gem 'pry'
+  gem 'pry-rails'
   gem 'spring'
   gem 'guard-livereload', require: false
 end

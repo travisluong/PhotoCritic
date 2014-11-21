@@ -2,6 +2,7 @@ class PhotoCritic.Routers.PhotosRouter extends Backbone.Router
   initialize: (options) ->
     @photos = new PhotoCritic.Collections.PhotosCollection()
     @navView = new PhotoCritic.Views.Home.NavView()
+    @windowView = new PhotoCritic.Views.Home.WindowView()
     $("#photo-critic-nav").html(@navView.render().el)
 
   routes:
@@ -23,6 +24,7 @@ class PhotoCritic.Routers.PhotosRouter extends Backbone.Router
 
   indexPhoto: ->
     @photos.reset()
+    @photos.page = 1
     @photos.fetch()
     @view = new PhotoCritic.Views.Photos.IndexView(photos: @photos)
     $("#photo-critic-app").html(@view.render().el)
