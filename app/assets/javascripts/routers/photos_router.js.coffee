@@ -15,14 +15,17 @@ class PhotoCritic.Routers.PhotosRouter extends Backbone.Router
     ".*"                : "home"
 
   home: ->
+    Backbone.PubSub.off('loadMore')
     @view = new PhotoCritic.Views.Home.Index()
     $("#photo-critic-app").html(@view.render().el)
 
   newPhoto: ->
+    Backbone.PubSub.off('loadMore')
     @view = new PhotoCritic.Views.Photos.NewView(collection: @photos)
     $("#photo-critic-app").html(@view.render().el)
 
   indexPhoto: ->
+    Backbone.PubSub.off('loadMore')
     @photos.reset()
     @photos.page = 1
     @photos.fetch()
@@ -30,10 +33,11 @@ class PhotoCritic.Routers.PhotosRouter extends Backbone.Router
     $("#photo-critic-app").html(@view.render().el)
 
   showPhoto: (id) ->
+    Backbone.PubSub.off('loadMore')
     photo = new PhotoCritic.Models.Photo()
     photo.id = id
     photo.url = ->
-      '/photos/' + id
+      '/api/photos/' + id
     photo.fetch({success: (model, response, options) ->
       # photo = @photos.get(id)
       @view = new PhotoCritic.Views.Photos.ShowView(model: photo)
@@ -41,10 +45,11 @@ class PhotoCritic.Routers.PhotosRouter extends Backbone.Router
     })
 
   editPhoto: (id) ->
+    Backbone.PubSub.off('loadMore')
     photo = new PhotoCritic.Models.Photo()
     photo.id = id
     photo.url = ->
-      '/photos/' + id
+      '/api/photos/' + id
     photo.fetch({success: (model, response, options) ->
       # photo = @photos.get(id)
       @view = new PhotoCritic.Views.Photos.EditView(model: photo)

@@ -5,7 +5,6 @@ class PhotoCritic.Views.Photos.IndexView extends Backbone.View
 
   initialize: () ->
     @options.photos.bind('reset', @addAll)
-    Backbone.PubSub.off('loadMore')
     Backbone.PubSub.on('loadMore', @loadMore)
 
   addAll: () =>

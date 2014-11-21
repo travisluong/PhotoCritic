@@ -10,5 +10,5 @@ class PhotoCritic.Models.Photo extends Backbone.Model
 class PhotoCritic.Collections.PhotosCollection extends Backbone.Collection
   model: PhotoCritic.Models.Photo
   url: -> 
-    '/photos' + '?page=' + @page
+    '/api/photos' + '?page=' + @page
   page: 1

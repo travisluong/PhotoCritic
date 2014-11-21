@@ -1,17 +1,17 @@
 Rails.application.routes.draw do
 
-  resources :photos
+  namespace :api do
+    resources :photos
+  end
 
   devise_for :users
-  get 'home/index'
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'home#index'
 
-
+  match '*path' => 'home#index', via: [:get]
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
