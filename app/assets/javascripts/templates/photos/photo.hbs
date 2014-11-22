@@ -1,2 +1,9 @@
 <td width="100"><img src="{{ thumb }}"></td>
-<td><a href="/photos/{{ id }}"><h3 style="margin-top:0;">{{title}}</h3></a></td>
+<td>
+<a href="/photos/{{ id }}"><h3 style="margin-top:0;">{{title}}</h3></a>
+{{#if critique}}
+  <p>Critique: {{critique}}</p>
+{{else}}
+  <p>Critique pending...</p>
+{{/if}}
+</td>

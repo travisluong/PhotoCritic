@@ -1,5 +1,5 @@
 class PhotoSerializer < ActiveModel::Serializer
-  attributes :id, :title, :image, :thumb, :medium
+  attributes :id, :title, :critique, :image, :thumb, :medium
 
   def thumb
     object.image.url(:thumb)
