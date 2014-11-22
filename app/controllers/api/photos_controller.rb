@@ -12,7 +12,7 @@ module Api
       end
       @photos = current_user.photos.limit(5).offset(offset).reverse_order
       respond_to do |format|
-        format.json { render json: @photos, each_serializer: PhotoSerializer }
+        format.json { render json: @photos, each_serializer: PhotoSerializer, meta: {total: current_user.photos.count} }
       end
     end
 

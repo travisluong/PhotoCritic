@@ -51,7 +51,7 @@ class PhotoCritic.Views.Photos.NewView extends Backbone.View
       processData: false,
       type: 'POST',
       success: (data) =>
-        Backbone.history.navigate("/photos/#{data.id}", {trigger: true})
+        Backbone.history.navigate("/photos/#{data.photo.id}", {trigger: true})
     })    
 
     # @collection.create(@model.toJSON(),

@@ -28,9 +28,11 @@ class PhotoCritic.Routers.PhotosRouter extends Backbone.Router
     Backbone.PubSub.off('loadMore')
     @photos.reset()
     @photos.page = 1
-    @photos.fetch()
-    @view = new PhotoCritic.Views.Photos.IndexView(photos: @photos)
-    $("#photo-critic-app").html(@view.render().el)
+    @photos.fetch(success: (collection, response, options) =>
+      @view = new PhotoCritic.Views.Photos.IndexView(photos: @photos, total: @photos.total)
+      $("#photo-critic-app").html(@view.render().el)
+    )
+
 
   showPhoto: (id) ->
     Backbone.PubSub.off('loadMore')

@@ -24,5 +24,8 @@ class PhotoCritic.Collections.PhotosCollection extends Backbone.Collection
   
   page: 1
 
+  total: 0
+
   parse: (response) ->
+    @total = response.meta.total
     return response.photos

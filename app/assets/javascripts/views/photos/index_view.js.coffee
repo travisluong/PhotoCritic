@@ -15,7 +15,7 @@ class PhotoCritic.Views.Photos.IndexView extends Backbone.View
     @$("tbody").append(view.render().el)
 
   render: =>
-    @$el.html(@template(photos: @options.photos.toJSON() ))
+    @$el.html(@template(photos: @options.photos.toJSON(), total: @options.total))
     @addAll()
 
     return this
