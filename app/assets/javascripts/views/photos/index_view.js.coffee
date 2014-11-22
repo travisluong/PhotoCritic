@@ -5,6 +5,8 @@ class PhotoCritic.Views.Photos.IndexView extends Backbone.View
 
   initialize: () ->
     @options.photos.bind('reset', @addAll)
+    @isLoading = false
+    @totalShown = @options.photos.length
     Backbone.PubSub.on('loadMore', @loadMore)
 
   addAll: () =>
@@ -20,11 +22,17 @@ class PhotoCritic.Views.Photos.IndexView extends Backbone.View
 
     return this
 
+  # load more only if what is shown is less than the total number of photos
   loadMore: =>
-    $('#photos-table').after('<div id="loading" class="well">Loading...</div>')
-    @options.photos.page = @options.photos.page + 1
-    @options.photos.fetch
-      success: (collection, response, options) ->
-        $('#loading').remove()
-      error: (collection, response, options) ->
-        $('#loading').empty().addClass('alert alert-danger').text('Error loading.')
+    if @isLoading == false
+      if @totalShown < @options.photos.total
+        @isLoading = true
+        $('#photos-table').after('<div id="loading" class="well">Loading...</div>')
+        @options.photos.page = @options.photos.page + 1
+        @options.photos.fetch
+          success: (collection, response, options) =>
+            @totalShown = @totalShown + response.photos.length
+            @isLoading = false
+            $('#loading').remove()
+          error: (collection, response, options) ->
+            $('#loading').empty().addClass('alert alert-danger').text('Error loading.')
