@@ -17,6 +17,7 @@ class PhotoCritic.Views.Photos.NewView extends Backbone.View
   save: (e) ->
     e.preventDefault()
     e.stopPropagation()
+    $(e.target).find('input[type=submit]').addClass('disabled').val('Uploading...')
     input = $('form input[type=file]')
     titleElem = $('form #title')
     title = titleElem.val()
@@ -52,6 +53,8 @@ class PhotoCritic.Views.Photos.NewView extends Backbone.View
       type: 'POST',
       success: (data) =>
         Backbone.history.navigate("/photos/#{data.photo.id}", {trigger: true})
+      error: (model, xhr, options) ->
+        alert('Error')
     })    
 
     # @collection.create(@model.toJSON(),
