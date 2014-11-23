@@ -7,7 +7,6 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # include CarrierWave::MiniMagick
   include Cloudinary::CarrierWave
 
-  process :convert => 'png'
   process :tags => ['post_picture']
   
   version :standard do
