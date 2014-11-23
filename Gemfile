@@ -14,6 +14,9 @@ gem 'rails-backbone'
 gem 'handlebars_assets'
 gem 'paperclip'
 gem 'active_model_serializers'
+gem 'carrierwave'
+gem 'cloudinary'
+gem 'figaro'
 
 group :production do
   gem 'rails_12factor'

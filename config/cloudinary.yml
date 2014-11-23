@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: hdo3hnfdg
+  api_key: '272494441421548'
+  api_secret: pS5wwGuzAP4mjig6Tlvl_1uYCig
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: hdo3hnfdg
+  api_key: '272494441421548'
+  api_secret: pS5wwGuzAP4mjig6Tlvl_1uYCig
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: hdo3hnfdg
+  api_key: '272494441421548'
+  api_secret: pS5wwGuzAP4mjig6Tlvl_1uYCig
+  enhance_image_tag: true
+  static_image_support: false
