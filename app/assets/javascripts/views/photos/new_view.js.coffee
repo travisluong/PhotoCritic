@@ -37,7 +37,7 @@ class PhotoCritic.Views.Photos.NewView extends Backbone.View
       return
 
     formData = new FormData()
-    formData.append('photo[image]', input[0].files[0])
+    formData.append('photo[pic]', input[0].files[0])
     formData.append('photo[title]', title)
     @model.data = formData
     @model.unset("errors")
