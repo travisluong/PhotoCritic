@@ -19,6 +19,7 @@ ActiveAdmin.register User do
       link_to image_tag(user.avatar_url(:thumbnail)), admin_user_path(user)
     end
     column :email
+    actions
   end
 
 end
