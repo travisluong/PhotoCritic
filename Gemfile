@@ -17,6 +17,7 @@ gem 'active_model_serializers'
 gem 'carrierwave'
 gem 'cloudinary'
 gem 'figaro'
+gem 'activeadmin', github: 'activeadmin'
 
 group :production do
   gem 'rails_12factor'

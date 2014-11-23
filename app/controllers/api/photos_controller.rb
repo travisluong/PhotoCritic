@@ -1,5 +1,6 @@
 module Api
   class PhotosController < ApplicationController
+    before_action :authenticate_user!
     before_action :set_photo, only: [:show, :edit, :update, :destroy]
 
     respond_to :json
