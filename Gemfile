@@ -19,6 +19,7 @@ gem 'cloudinary'
 gem 'figaro'
 gem 'activeadmin', github: 'activeadmin'
 gem 'dynopoker'
+gem 'delayed_job_active_record'
 
 group :production do
   gem 'rails_12factor'

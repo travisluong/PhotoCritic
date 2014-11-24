@@ -36,10 +36,9 @@ module Api
     def create
       @photo = current_user.photos.new(photo_params)
 
-      # respond_with(@photo)
       respond_to do |format|
         if @photo.save
-          NewPhotoMailer.new_photo_email(AdminUser.first).deliver
+          Delayed::Job.enqueue NewPhotoJob.new(@photo)
           format.json { render json: @photo }
         else
           format.json { render json: @photo.errors }
