@@ -20,6 +20,7 @@ gem 'figaro'
 gem 'activeadmin', github: 'activeadmin'
 gem 'dynopoker'
 gem 'delayed_job_active_record'
+gem 'foreman'
 
 group :production do
   gem 'rails_12factor'

@@ -8,6 +8,7 @@ port        ENV['PORT']     || 3000
 environment ENV['RACK_ENV'] || 'development'
 
 on_worker_boot do
+  @delayed_job_pid ||= spawn("bundle exec rake jobs:work")
   # worker specific setup
   ActiveSupport.on_load(:active_record) do
     config = ActiveRecord::Base.configurations[Rails.env] ||
@@ -15,4 +16,5 @@ on_worker_boot do
     config['pool'] = ENV['MAX_THREADS'] || 16
     ActiveRecord::Base.establish_connection(config)
   end
+
 end
