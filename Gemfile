@@ -29,6 +29,7 @@ group :development do
   gem 'pry-rails'
   gem 'spring'
   gem 'guard-livereload', require: false
+  gem 'letter_opener'
 end
 
 gem 'sdoc', '~> 0.4.0',          group: :doc

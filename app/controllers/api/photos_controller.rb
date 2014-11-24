@@ -35,10 +35,15 @@ module Api
 
     def create
       @photo = current_user.photos.new(photo_params)
-      @photo.save
+
       # respond_with(@photo)
       respond_to do |format|
-        format.json { render json: @photo }
+        if @photo.save
+          NewPhotoMailer.new_photo_email(AdminUser.first).deliver
+          format.json { render json: @photo }
+        else
+          format.json { render json: @photo.errors }
+        end
       end
     end
 
