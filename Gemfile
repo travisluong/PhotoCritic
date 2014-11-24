@@ -18,6 +18,7 @@ gem 'carrierwave'
 gem 'cloudinary'
 gem 'figaro'
 gem 'activeadmin', github: 'activeadmin'
+gem 'dynopoker'
 
 group :production do
   gem 'rails_12factor'
