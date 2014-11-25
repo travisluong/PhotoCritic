@@ -21,6 +21,7 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'dynopoker'
 gem 'delayed_job_active_record'
 gem 'foreman'
+gem 'omniauth-twitter'
 
 group :production do
   gem 'rails_12factor'
