@@ -17,7 +17,6 @@ class PhotoCritic.Views.Photos.NewView extends Backbone.View
   save: (e) ->
     e.preventDefault()
     e.stopPropagation()
-    $(e.target).find('input[type=submit]').addClass('disabled').val('Uploading...')
     input = $('form input[type=file]')
     titleElem = $('form #title')
     title = titleElem.val()
@@ -36,6 +35,7 @@ class PhotoCritic.Views.Photos.NewView extends Backbone.View
     if !isValid
       return
 
+    $(e.target).find('input[type=submit]').addClass('disabled').val('Uploading...')
     formData = new FormData()
     formData.append('photo[pic]', input[0].files[0])
     formData.append('photo[title]', title)
