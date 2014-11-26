@@ -1,5 +1,5 @@
 class NewPhotoMailer < ActionMailer::Base
-  default from: "from@example.com"
+  default from: "admin@photocritic.herokuapp.com"
 
   def new_photo_email(admin, photo)
     @photo = photo
