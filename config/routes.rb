@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   namespace :api do
     resources :photos
+
+    namespace :v1 do
+      resources :photos
+    end
   end
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
