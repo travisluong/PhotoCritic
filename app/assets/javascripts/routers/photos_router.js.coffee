@@ -39,7 +39,7 @@ class PhotoCritic.Routers.PhotosRouter extends Backbone.Router
     photo = new PhotoCritic.Models.Photo()
     photo.id = id
     photo.url = ->
-      '/api/photos/' + id
+      '/api/v1/photos/' + id
     photo.fetch({success: (model, response, options) ->
       # photo = @photos.get(id)
       @view = new PhotoCritic.Views.Photos.ShowView(model: photo)
