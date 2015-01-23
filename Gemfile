@@ -22,6 +22,7 @@ gem 'dynopoker'
 gem 'delayed_job_active_record'
 gem 'foreman'
 gem 'omniauth-twitter'
+gem 'simple_token_authentication'
 
 group :production do
   gem 'rails_12factor'

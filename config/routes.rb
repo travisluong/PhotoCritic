@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
       resources :photos
+      devise_scope :user do
+        match 'sessions/create' => 'sessions#create', via: [:post]
+      end
     end
   end
 
