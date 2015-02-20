@@ -45,7 +45,7 @@ class PhotoCritic.Views.Photos.NewView extends Backbone.View
     @model.validate()
 
     $.ajax({
-      url: '/api/photos',
+      url: '/api/v1/photos',
       data: formData,
       cache: false,
       contentType: false,
