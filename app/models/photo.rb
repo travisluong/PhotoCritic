@@ -5,4 +5,12 @@ class Photo < ActiveRecord::Base
   mount_uploader :pic, PhotoUploader
   validates :title, presence: true
   belongs_to :user
+
+  before_validation :set_title
+
+  def set_title
+    unless self.title
+      self.title = "New Image"
+    end
+  end
 end
