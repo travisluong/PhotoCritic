@@ -13,7 +13,7 @@ module Api
           page = params[:page].to_i
           offset = 20 * (page - 1)
         end
-        @photos = Photo.all.limit(20).offset(offset).reverse_order
+        @photos = current_user.photos.all.limit(20).offset(offset).reverse_order
         respond_to do |format|
           format.json { render json: @photos, each_serializer: PhotoSerializer, meta: {total: current_user.photos.count} }
         end
