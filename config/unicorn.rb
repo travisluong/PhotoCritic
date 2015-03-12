@@ -3,6 +3,8 @@ worker_processes Integer(ENV["WEB_CONCURRENCY"] || 3)
 timeout 15
 preload_app true
 
+@delayedjob_pid = nil
+
 before_fork do |server, worker|
   @delayedjob_pid ||= spawn("bundle exec rake jobs:work")
 
