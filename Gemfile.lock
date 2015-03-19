@@ -184,6 +184,9 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
+    passenger (5.0.4)
+      rack
+      rake (>= 0.8.1)
     pg (0.17.1)
     polyamorous (1.1.0)
       activerecord (>= 3.0)
@@ -193,8 +196,6 @@ GEM
       slop (~> 3.4)
     pry-rails (0.3.2)
       pry (>= 0.9.10)
-    puma (2.11.0)
-      rack (>= 1.1, < 2.0)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -298,10 +299,10 @@ DEPENDENCIES
   letter_opener
   omniauth-twitter
   paperclip
+  passenger
   pg
   pry
   pry-rails
-  puma
   rails (= 4.1.7)
   rails-backbone
   rails_12factor
